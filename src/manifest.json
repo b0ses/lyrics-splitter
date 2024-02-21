@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "Lyric Splitter",
+    "version": "1.0",
+  
+    "description": "simply reorganizes popular lyircs pages to display all the lyrics on one page without needing to scroll",
+    "homepage_url": "https://github.com/b0ses/lyric-spliiter",
+  
+    "permissions": ["activeTab"],
+    
+    "content_scripts": [
+        {
+          "matches": [
+            "*://genius.com/*"
+          ],
+          "js": ["lyric-splitter.js"]
+        }
+    ]
+  }
