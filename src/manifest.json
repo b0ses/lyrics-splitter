@@ -11,6 +11,12 @@
     "icons": {
       "48": "icons/48.png"
     },
+
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "28663288-84e6-4e54-8cde-62fe21ac2cca"
+      }
+    },    
     
     "content_scripts": [
         {
