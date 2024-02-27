@@ -1,12 +1,12 @@
 {
     "manifest_version": 3,
     "name": "Lyrics Splitter",
-    "version": "1.0",
+    "version": "1.10",
   
     "description": "Reorganizes popular lyrics sites to display all the lyrics on one page without needing to scroll.",
     "homepage_url": "https://github.com/b0ses/lyrics-splitter",
   
-    "permissions": ["activeTab"],
+    "permissions": [],
 
     "icons": {
       "48": "icons/48.png"
@@ -14,7 +14,7 @@
 
     "browser_specific_settings": {
       "gecko": {
-        "id": "28663288-84e6-4e54-8cde-62fe21ac2cca"
+        "id": "{f628929b-e4d1-4b84-9111-c2b4e78566a6}"
       }
     },    
     
