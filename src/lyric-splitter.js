@@ -5,8 +5,12 @@ function splitGeniusLyrics() {
         var textSplit = div.innerText.split('[');
         // skipping the first one
         for (i=1; i<textSplit.length+1; i++){
-            if (textSplit[i] !== undefined)
-                cols.push('[' + textSplit[i]);
+            if (textSplit[i] !== undefined){
+                var sectionText = '[' + textSplit[i];
+                // Dropping any sections with no lyrics
+                if (sectionText.trim().slice(-1) !== ']')
+                    cols.push(sectionText);
+            }       
         }
     });
 
