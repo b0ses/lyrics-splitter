@@ -21,7 +21,8 @@
     "content_scripts": [
         {
           "matches": [
-            "*://genius.com/*"
+            "*://genius.com/*",
+            "*://www.azlyrics.com/*"
           ],
           "js": ["lyric-splitter.js"]
         }
