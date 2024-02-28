@@ -4,7 +4,8 @@ Extension/add-on that simply reorganizes popular lyrics sites to display all the
 
 Supports:
 * Genius.com
+* AZLyrics.com
 
 Firefox Add-on: https://addons.mozilla.org/en-US/firefox/addon/lyrics-splitter/
 
-Chrome Extension: TBA
+Chrome Extension: https://chromewebstore.google.com/detail/lyrics-splitter/fodikooapkdekobbhilhdaodpachbdin?hl=en&authuser=0&pli=1
