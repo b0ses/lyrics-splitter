@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Lyrics Splitter",
-    "version": "1.12",
+    "version": "1.13",
     "description": "Reorganize popular lyrics sites to display all the lyrics on one page without needing to scroll.",
     "homepage_url": "https://github.com/b0ses/lyrics-splitter",
     "browser_specific_settings": {
