@@ -3,8 +3,9 @@
 Extension/add-on that simply reorganizes popular lyrics sites to display all the lyrics on one page without needing to scroll.
 
 Supports:
-* Genius.com
 * AZLyrics.com
+* Genius.com
+* Google.com
 
 Firefox Add-on: https://addons.mozilla.org/en-US/firefox/addon/lyrics-splitter/
 

@@ -27,7 +27,8 @@
         {
           "matches": [
             "*://genius.com/*",
-            "*://www.azlyrics.com/*"
+            "*://www.azlyrics.com/*",
+            "*://www.google.com/*"
           ],
           "js": ["lyric-splitter.js"]
         }

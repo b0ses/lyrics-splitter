@@ -59,16 +59,51 @@ function splitAZLyrics() {
     root.innerHTML = innerHTML;
 };
 
+function splitGoogleLyrics() {
+    var cols = [];
+
+    const compositionLyrics = document.querySelector('div[data-attrid=\'kc:/music/composition:lyrics\']');
+    const recordingClusterLyrics = document.querySelector('div[data-attrid=\'kc:/music/recording_cluster:lyrics\']');
+    var lyricsDiv = (compositionLyrics || recordingClusterLyrics);
+
+    const parentDiv = lyricsDiv.querySelector('span').parentElement.parentElement;
+
+    parentDiv.childNodes.forEach((div) => {
+        if (div.innerText.trim() !== undefined && div.innerText.trim() !== "") {
+            cols.push(div.innerText.trim());
+        }
+    })
+    
+    // Drop any dups
+    cols = [...new Set(cols)];
+
+    var innerHTML = "<div style='width:98%; box-sizing:content-box; display:flex; justify-content: space-around; flex-flow: row wrap; align-items: stretch;'>";
+    var equalWidth = (98/cols.length);
+    for (i=0; i<cols.length; i++){
+        innerHTML = innerHTML + "<div style='width:" + equalWidth + "%'>" + cols[i] + "</div>";
+    }
+    innerHTML = innerHTML.replace(/(?:\r\n|\r|\n)/g, '<br>');
+
+    const mainDiv = document.getElementById('center_col')
+    mainDiv.style = "position:relative;margin:0px;width:100%";
+
+    const higherDiv = document.getElementById('rcnt');
+    higherDiv.style = "position:relative;margin:10px;max-width:100%";
+
+    lyricsDiv.style = "display:block;margin:0px;width:100%;"
+    lyricsDiv.innerHTML = innerHTML;
+};
 
 
 const supportedSitesArray = [
+    [/.*:\/\/www\.azlyrics\.com\/.*/, splitAZLyrics],
     [/.*:\/\/genius\.com\/.*/, splitGeniusLyrics],
-    [/.*:\/\/www\.azlyrics\.com\/.*/, splitAZLyrics]
+    [/.*:\/\/www\.google\.com\/.*/, splitGoogleLyrics]
 ]
 const supportedSites = new Map(supportedSitesArray);
 
 const url = window.location.href;
-for (let [regex, spliiterFunc] of supportedSites) {
+for (let [regex, splitterFunc] of supportedSites) {
     if (url.match(regex))
-        spliiterFunc();
+        splitterFunc();
 }
