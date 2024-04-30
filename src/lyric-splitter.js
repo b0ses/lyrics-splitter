@@ -94,11 +94,44 @@ function splitGoogleLyrics() {
     lyricsDiv.innerHTML = innerHTML;
 };
 
+function splitSMLyrics() {
+    var cols = [];
+
+    let lyricBox = document.querySelector('div.holder.lyric-box');
+    var textSplit = lyricBox.innerText.split('\n\n');
+    for (i=0; i<textSplit.length+1; i++){
+        if (textSplit[i] !== undefined && textSplit[i].trim() !== ''){
+            cols.push(textSplit[i]);
+        }       
+    }
+
+    // Drop any dups
+    cols = [...new Set(cols)];
+
+    var innerHTML = "<div style='width:98%; box-sizing:content-box; display:flex; justify-content: space-around; flex-flow: row wrap; align-items: stretch;'>";
+    var equalWidth = (98/cols.length);
+    // Skip the last one - "Edit Lyrics"
+    for (i=0; i<cols.length-1; i++){
+        innerHTML = innerHTML + "<div style='width:" + equalWidth + "%'>" + cols[i] + "</div>";
+    }
+    innerHTML = innerHTML.replace(/(?:\r\n|\r|\n)/g, '<br>');
+
+    let mainPage = document.querySelector('div.main-holder');
+    mainPage.style = "max-width:initial;"
+
+    let mainContent = document.getElementById('content');
+    mainContent.style = "width:100%;line-height:1.571em;overflow:visible;"
+
+    lyricBox.style = "display:block;margin:0px;width:100%;"
+    lyricBox.innerHTML = innerHTML;
+};
+
 
 const supportedSitesArray = [
     [/.*:\/\/www\.azlyrics\.com\/.*/, splitAZLyrics],
     [/.*:\/\/genius\.com\/.*/, splitGeniusLyrics],
-    [/.*:\/\/www\.google\.com\/.*/, splitGoogleLyrics]
+    [/.*:\/\/www\.google\.com\/.*/, splitGoogleLyrics],
+    [/.*:\/\/songmeanings\.com\/.*/, splitSMLyrics]
 ]
 const supportedSites = new Map(supportedSitesArray);
 
