@@ -6,6 +6,7 @@ Supports:
 * AZLyrics.com
 * Genius.com
 * Google.com
+* SongMeanings.com
 
 Firefox Add-on: https://addons.mozilla.org/en-US/firefox/addon/lyrics-splitter/
 
